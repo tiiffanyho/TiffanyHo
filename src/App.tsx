@@ -1,21 +1,11 @@
-import Hero from './components/Hero'
-import About from './components/About'
-import Projects from './components/Projects'
-import Skills from './components/Skills'
-import Currently from './components/Currently'
-import Contact from './components/Contact'
+import LeftPanel from './components/LeftPanel'
+import RightPanel from './components/RightPanel'
 
-function App() {
+export default function App() {
   return (
-    <main>
-      <Hero />
-      <About />
-      <Projects />
-      <Skills />
-      <Currently />
-      <Contact />
-    </main>
+    <>
+      <LeftPanel />
+      <RightPanel />
+    </>
   )
 }
-
-export default App

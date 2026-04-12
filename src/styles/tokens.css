@@ -1,0 +1,41 @@
+/* ─────────────────────────────────────────────────────────────
+   DESIGN TOKENS
+   The single source of truth for all colors, fonts, and spacing.
+   Change something here → it updates everywhere automatically.
+   ───────────────────────────────────────────────────────────── */
+
+:root {
+  /* ── Colors ──────────────────────────────────────────────── */
+  --color-bg:          #000000;   /* page background */
+  --color-white:       #ffffff;   /* card backgrounds */
+  --color-black:       #000000;   /* primary text */
+  --color-accent:      #ff00cc;   /* pink accent (hover states etc.) */
+  --color-blue:        #3b82f6;   /* blue accent (project card hover) */
+
+  --color-text:        #000000;   /* body text */
+  --color-text-mid:    #555555;   /* secondary text */
+  --color-text-muted:  #888888;   /* muted / placeholder text */
+  --color-text-faint:  #aaaaaa;   /* dates, labels */
+
+  --color-border:      #ececec;   /* card/input borders */
+  --color-border-mid:  #f0f0f0;   /* dividers */
+  --color-surface:     #f4f4f4;   /* tag backgrounds, gallery placeholders */
+  --color-surface-mid: #e8e8e8;   /* tab bar background */
+
+  --color-status-bg:   #0f0f0f;   /* status bar background */
+  --color-green:       #22c55e;   /* available dot */
+
+  /* ── Typography ──────────────────────────────────────────── */
+  --font-head: 'Bebas Neue', Impact, sans-serif;
+  --font-body: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* ── Spacing & Shape ─────────────────────────────────────── */
+  --gap:        12px;   /* gap between the two panels */
+  --radius:     16px;   /* main card border radius */
+  --radius-sm:  8px;    /* smaller radius (tabs, status bar) */
+
+  /* ── Shadows ─────────────────────────────────────────────── */
+  --shadow:      0 8px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
+  --shadow-blue: 0 4px 20px rgba(59,130,246,0.15);
+}

@@ -1,0 +1,56 @@
+/* ─────────────────────────────────────────────────────────────
+   REUSABLE COMPONENTS
+   Generic building blocks used in multiple places.
+   Add new shared styles here so they're easy to find and reuse.
+   ───────────────────────────────────────────────────────────── */
+
+/* ── Card ────────────────────────────────────────────────────
+   Use class="card" on any white floating panel.              */
+.card {
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+/* ── Section heading (Bebas Neue, large) ─────────────────────
+   Used at the top of Experience, Projects, Gallery tabs.     */
+.section-head {
+  font-family: var(--font-head);
+  font-size: clamp(36px, 4.5vw, 56px);
+  line-height: 1;
+  color: var(--color-black);
+  margin-bottom: 32px;
+}
+
+/* ── Tag pill ────────────────────────────────────────────────
+   Small uppercase label. Used on project cards.              */
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 100px;
+  background: var(--color-surface);
+  color: var(--color-text-mid);
+}
+
+/* ── Label (small uppercase eyebrow text) ────────────────────
+   Used for "Philosophy", section labels, etc.                */
+.label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+/* ── Divider ─────────────────────────────────────────────────
+   Horizontal rule between list items.                        */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-border-mid);
+  margin: 0;
+}
