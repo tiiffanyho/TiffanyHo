@@ -1,0 +1,92 @@
+/* Google Fonts — add to index.html when ready */
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@400;500&display=swap'); */
+
+:root {
+  /* Color palette */
+  --color-cream:        #faf7f2;
+  --color-cream-dark:   #f2ede4;
+  --color-warm-white:   #fffefb;
+  --color-accent:       #b5541c;
+  --color-accent-light: #d4784a;
+  --color-accent-muted: rgba(181, 84, 28, 0.12);
+  --color-brown:        #2c1a0e;
+  --color-brown-mid:    #5c3d2e;
+  --color-text:         #3d2b1f;
+  --color-text-muted:   #7a5c4a;
+  --color-border:       #e2d5c8;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --section-padding: 80px 0;
+  --content-width:   860px;
+
+  /* Misc */
+  --radius: 8px;
+  --shadow: 0 4px 24px rgba(44, 26, 14, 0.08);
+}
+
+/* Reset & base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  color: var(--color-brown);
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem);   font-weight: 500; }
+h3 { font-size: 1.15rem;                     font-weight: 500; }
+
+p {
+  margin: 0 0 1em;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-accent-light);
+}
+
+/* Sections */
+section {
+  padding: var(--section-padding);
+  border-bottom: 1px solid var(--color-border);
+}
+
+section:last-child {
+  border-bottom: none;
+}
