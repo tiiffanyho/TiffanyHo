@@ -4,12 +4,14 @@ import Home from './tabs/Home'
 import Experience from './tabs/Experience'
 import Projects from './tabs/Projects'
 import Gallery from './tabs/Gallery'
+import Playground from './tabs/Playground'
 
 const TABS = [
   { id: 'home',       label: 'Home' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects',   label: 'Projects' },
   { id: 'gallery',    label: 'Gallery' },
+  { id: 'playground', label: 'Playground' },
 ]
 
 const COMPONENTS: Record<string, React.ReactNode> = {
@@ -17,6 +19,7 @@ const COMPONENTS: Record<string, React.ReactNode> = {
   experience: <Experience />,
   projects:   <Projects />,
   gallery:    <Gallery />,
+  playground: <Playground />,
 }
 
 const slideVariants = {

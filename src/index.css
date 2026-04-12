@@ -77,17 +77,59 @@ body {
   color: var(--color-black);
 }
 
-.tagline-main {
-  font-size: 13px;
-  font-weight: 700;
+.tagline-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tagline-heading {
+  font-family: var(--font-head);
+  font-size: 18px;
+  line-height: 1.1;
   color: var(--color-black);
-  margin-bottom: 4px;
+  flex: 1;
+}
+
+.tagline-blue {
+  color: var(--color-blue);
+}
+
+.tagline-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 .tagline-sub {
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-text-mid);
+  text-align: left;
+  line-height: 1.4;
+}
+
+.contact-btn {
+  display: inline-block;
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 10px;
   font-weight: 700;
-  color: var(--color-black);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 7px 12px;
+  border-radius: 4px;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.contact-btn:hover {
+  background: #2563eb;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -208,7 +250,30 @@ body {
   position: absolute;
   inset: 0;
   background: var(--color-white);
-  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  border-radius: 12px 12px 0 0;
+}
+
+/* inward curved corners at the bottom of the active tab */
+.tab-bg::before,
+.tab-bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--color-surface-mid);
+}
+
+.tab-bg::before {
+  left: -12px;
+  border-bottom-right-radius: 12px;
+  box-shadow: 4px 4px 0 4px var(--color-white);
+}
+
+.tab-bg::after {
+  right: -12px;
+  border-bottom-left-radius: 12px;
+  box-shadow: -4px 4px 0 4px var(--color-white);
 }
 
 .tab-label {
@@ -295,23 +360,34 @@ body {
 .exp-company { font-size: 12px; font-weight: 600; color: var(--color-text-muted); margin-bottom: 8px; }
 .exp-desc    { font-size: 13px; font-weight: 500; line-height: 1.7; color: var(--color-text-mid); }
 
+.exp-bullets {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-text-mid);
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 /* ─────────────────────────────────────────────────────────────
    PROJECTS TAB
    ───────────────────────────────────────────────────────────── */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 16px;
-  max-width: 720px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 900px;
 }
 
 .project-card {
   border: 1.5px solid var(--color-border);
   border-radius: 12px;
-  padding: 24px;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
   transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
 }
 
@@ -336,9 +412,9 @@ body {
    ───────────────────────────────────────────────────────────── */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 14px;
-  max-width: 720px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
 }
 
 .gallery-item {
@@ -356,6 +432,45 @@ body {
 }
 
 .gallery-item:hover { background: #ebebeb; }
+
+/* ─────────────────────────────────────────────────────────────
+   PLAYGROUND TAB
+   ───────────────────────────────────────────────────────────── */
+.playground-desc {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+  max-width: 500px;
+}
+
+.playground-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.playground-item {
+  aspect-ratio: 4/3;
+  background: var(--color-surface);
+  border-radius: 12px;
+  border: 1.5px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-faint);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.playground-item:hover {
+  background: #ebebeb;
+  border-color: var(--color-blue);
+}
 
 /* ─────────────────────────────────────────────────────────────
    MOBILE

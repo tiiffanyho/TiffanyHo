@@ -18,10 +18,17 @@ export default function LeftPanel() {
         </p>
       </div>
 
-      {/* bottom card — tagline */}
+      {/* bottom card — tagline + contact */}
       <div className="card card-bottom">
-        <p className="tagline-main">Big Ideas start with a simple hello</p>
-        <p className="tagline-sub">Let's build something bold together</p>
+        <div className="tagline-row">
+          <p className="tagline-heading">
+            <span className="tagline-blue">Big ideas</span> start with a simple hello.
+          </p>
+          <div className="tagline-right">
+            <p className="tagline-sub">Let's build something <strong>bold</strong> together.</p>
+            <a className="contact-btn" href="mailto:tiffanyho0903@gmail.com">Contact Me</a>
+          </div>
+        </div>
       </div>
 
     </div>
