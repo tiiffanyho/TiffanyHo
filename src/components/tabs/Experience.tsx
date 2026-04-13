@@ -7,7 +7,17 @@ export default function Experience() {
       <div className="exp-list">
         {experiences.map((item, i) => (
           <div className="exp-entry" key={i}>
-            <div className="exp-date">{item.date}</div>
+            <div>
+              <div className="exp-date">{item.date}</div>
+              {item.logo && (
+                <img
+                  className="exp-logo"
+                  src={item.logo}
+                  alt={item.company}
+                  style={item.logoSize ? { width: item.logoSize, height: 'auto' } : undefined}
+                />
+              )}
+            </div>
             <div>
               <div className="exp-role">{item.role}</div>
               <div className="exp-company">{item.company}</div>

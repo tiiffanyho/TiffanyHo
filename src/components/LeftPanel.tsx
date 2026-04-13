@@ -1,4 +1,5 @@
 import StatusBar from './StatusBar'
+import Typewriter from './Typewriter'
 
 export default function LeftPanel() {
   return (
@@ -9,13 +10,7 @@ export default function LeftPanel() {
         <h1 className="name">Tiffany<br />Ho</h1>
         <StatusBar />
         <p className="philosophy-label">Philosophy</p>
-        <p className="philosophy-text">
-          Design is an ongoing journey: one of learning, experimenting, and evolving.
-          I embrace each challenge as an opportunity to grow and adapt using my
-          technical expertise and passion for innovation in design. I strive to make
-          technology more intuitive, accessible, and meaningful to connect audiences
-          and elevate impact
-        </p>
+        <Typewriter />
       </div>
 
       {/* bottom card — tagline + contact */}
