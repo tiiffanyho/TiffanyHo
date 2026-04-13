@@ -4,8 +4,7 @@ export default function Home() {
       <h2 className="about-heading">About me</h2>
       <div className="bio">
         <p>
-          I'm a driven creative designer Honours Systems Designs Engineering
-          at the University of Waterloo.
+          Hey I'm Tiffany, a Systems Designs Engineering student @ The University of Waterloo with a passion for design and development. I have a strong interest in the intersection of technology, creativity, and user experience, and I love using my skills to create meaningful and impactful projects.
         </p>
         <p>
           Over the years, I've built a versatile creative portfolio through
@@ -17,10 +16,9 @@ export default function Home() {
           centred around the use of technology.
         </p>
         <p>
-          I am passionate about designing and building technology to create
-          impactful change that utilize both creativity with innovation. My
-          goal is to continue developing meaningful content and tools that
-          inspire, inform, and make a difference.
+          In my free time I love to go to the gym, dance, read, and explore new places with friends. 
+          I'm always looking for new opportunities to learn and grow, and
+          I'm excited to see where my passion for design and development takes me in the future.
         </p>
       </div>
     </>
