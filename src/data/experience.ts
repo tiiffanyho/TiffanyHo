@@ -15,7 +15,7 @@ export const experiences: ExperienceItem[] = [
   {
     date: 'Jan 2026 — Present',
     role: 'iOS software developer',
-    company: 'Textnow · Co-op',
+    company: 'Textnow · Internship',
     logo: textnow,
     description: [
       'Contribute to designing, developing, and maintaining improvements and new features for our iOS app, focusing on upgrading ad performance and user experience.',

@@ -1,10 +1,9 @@
 export default function Home() {
   return (
     <>
-      <h2 className="about-heading">About me</h2>
-      <div className="bio">
+<div className="bio">
         <p>
-          Hey I'm Tiffany, a Systems Designs Engineering student @ The University of Waterloo with a passion for design and development. I have a strong interest in the intersection of technology, creativity, and user experience, and I love using my skills to create meaningful and impactful projects.
+          Hey I'm Tiffany, a Systems Designs Engineering student @ The University of Waterloo with a passion for design and development. I'm interested in the intersection of technology, creativity, and user experience, and I love using my skills to create meaningful and impactful projects.
         </p>
         <p>
           Over the years, I've built a versatile creative portfolio through

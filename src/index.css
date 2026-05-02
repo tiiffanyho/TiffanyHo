@@ -1,6 +1,30 @@
 @import './styles/tokens.css';
 @import './styles/components.css';
 
+/* ── theme toggle ── */
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-white);
+  color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-blue);
+}
+
 /* ─────────────────────────────────────────────────────────────
    GLOBAL RESET & BASE
    ───────────────────────────────────────────────────────────── */
@@ -202,8 +226,10 @@ body {
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--color-text-muted);
+  color: #ffffff;
 }
+
+[data-theme="dark"] .status-text { color: #ffffff; }
 
 .status-icons {
   display: flex;
@@ -214,12 +240,14 @@ body {
 .status-icons a {
   display: flex;
   align-items: center;
-  color: var(--color-text-muted);
+  color: var(--color-white);
   transition: color 0.15s;
   text-decoration: none;
+  opacity: 0.6;
 }
 
-.status-icons a:hover { color: var(--color-white); }
+.status-icons a:hover { opacity: 1; }
+
 
 .status-icons svg {
   width: 16px;
@@ -434,7 +462,7 @@ body {
 .pc-card:hover {
   border-color: var(--color-blue);
   box-shadow: var(--shadow-blue);
-  transform: translateY(-2px);
+  transform: translateY(-6px) scale(1.06);
 }
 
 .pc-media {
@@ -503,19 +531,78 @@ body {
 .pc-built-with-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-mid); white-space: nowrap; }
 .pc-built-with-items { font-size: 11px; font-weight: 500; color: var(--color-text-mid); }
 
+/* ── unified app media showcase ── */
+.app-media-showcase {
+  position: relative;
+  width: 100%;
+  margin-bottom: 8px;
+  overflow: visible;
+  padding: 0 48px;
+}
+
+.app-media-showcase .pd-arrow--left  { left: 4px; }
+.app-media-showcase .pd-arrow--right { right: 4px; }
+
+.app-media-slide {
+  width: 100%;
+}
+
+.app-design-img {
+  width: 100%;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
 /* ── app phone showcase ── */
+.app-phone-showcase-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
 .app-phone-showcase {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 20px;
-  padding: 48px 0 56px;
+  gap: 0;
+  padding: 48px 0 8px;
   overflow: visible;
+}
+
+.app-phone-showcase--spread {
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-bottom: 8px;
+}
+
+
+.phone-spread-btn {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1.5px solid var(--color-border);
+  background: transparent;
+  color: var(--color-text-mid);
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  margin-bottom: 24px;
+}
+
+.phone-spread-btn:hover {
+  border-color: var(--color-blue);
+  color: var(--color-blue);
 }
 
 .app-phone-frame {
   width: 130px;
   height: 264px;
+  margin-left: -28px;
   border-radius: 24px;
   border: 6px solid #1a1a1a;
   overflow: hidden;
@@ -533,6 +620,24 @@ body {
   object-fit: cover;
   display: block;
   pointer-events: none;
+}
+
+/* ── design carousel label ── */
+.design-carousel-label {
+  position: absolute;
+  top: 14px;
+  left: 18px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  background: rgba(0,0,0,0.45);
+  padding: 4px 10px;
+  border-radius: 20px;
+  backdrop-filter: blur(6px);
+  z-index: 1;
 }
 
 /* ── project detail overlay ── */

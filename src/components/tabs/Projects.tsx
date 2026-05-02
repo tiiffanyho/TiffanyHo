@@ -62,7 +62,7 @@ function DetailBody({ value }: { value: string | string[] }) {
   return <p className="pd-section-body">{value}</p>
 }
 
-function ProjectMeta({ project }: { project: Project }) {
+function ProjectHeader({ project }: { project: Project }) {
   return (
     <>
       <h2 className="pd-title">{project.name}</h2>
@@ -75,6 +75,13 @@ function ProjectMeta({ project }: { project: Project }) {
           <span className="pc-built-with-items">{project.builtWith.join(' · ')}</span>
         </div>
       )}
+    </>
+  )
+}
+
+function ProjectSections({ project }: { project: Project }) {
+  return (
+    <>
       {project.inspiration && (
         <section className="pd-section">
           <h3 className="pd-section-label">Inspiration</h3>
@@ -222,6 +229,112 @@ function MediaCarousel({ project }: { project: Project }) {
   )
 }
 
+/* ── design image carousel ──────────────────────────────── */
+function DesignCarousel({ images }: { images: string[] }) {
+  const [idx, setIdx] = useState(0)
+  const total = images.length
+  const prev = () => setIdx(i => (i - 1 + total) % total)
+  const next = () => setIdx(i => (i + 1) % total)
+
+  return (
+    <div className="pd-carousel" style={{ marginTop: 32 }}>
+      <div className="design-carousel-label">Component Design</div>
+      <img
+        key={idx}
+        src={images[idx]}
+        alt={`design ${idx + 1}`}
+        className="pd-img"
+      />
+      {total > 1 && (
+        <>
+          <button className="pd-arrow pd-arrow--left" onClick={prev}>‹</button>
+          <button className="pd-arrow pd-arrow--right" onClick={next}>›</button>
+          <div className="pd-dots">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                className={`pd-dot ${i === idx ? 'pd-dot--active' : ''}`}
+                onClick={() => setIdx(i)}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
+/* ── unified app media (phones + design images) ─────────── */
+const PHONES_PER_PAGE = 5
+
+function chunkArray<T>(arr: T[], size: number): T[][] {
+  const chunks: T[][] = []
+  for (let i = 0; i < arr.length; i += size) chunks.push(arr.slice(i, i + size))
+  return chunks
+}
+
+const slideVariants = {
+  enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
+  center: { x: 0, opacity: 1 },
+  exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
+}
+
+function AppMediaShowcase({ project }: { project: Project }) {
+  const allPhones = (project.images ?? []).slice(1)
+  const phonePages = chunkArray(allPhones, PHONES_PER_PAGE)
+  const extras = project.designImages ?? []
+  const total = phonePages.length + extras.length
+  const [slide, setSlide] = useState(0)
+  const [dir, setDir] = useState(1)
+
+  function go(next: number) {
+    setDir(next > slide ? 1 : -1)
+    setSlide(next)
+  }
+  const prev = () => go((slide - 1 + total) % total)
+  const next = () => go((slide + 1) % total)
+
+  const isPhonePage = slide < phonePages.length
+  const slideKey = isPhonePage ? `phones-${slide}` : `design-${slide - phonePages.length}`
+
+  return (
+    <div className="app-media-showcase">
+      <AnimatePresence mode="wait" custom={dir}>
+        <motion.div
+          key={slideKey}
+          className="app-media-slide"
+          custom={dir}
+          variants={slideVariants}
+          initial="enter" animate="center" exit="exit"
+          transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+        >
+          {isPhonePage ? (
+            <PhoneShowcase images={phonePages[slide]} />
+          ) : (
+            <img
+              src={extras[slide - phonePages.length]}
+              alt={`design ${slide - phonePages.length + 1}`}
+              className="app-design-img"
+            />
+          )}
+        </motion.div>
+      </AnimatePresence>
+
+      {total > 1 && (
+        <>
+          <button className="pd-arrow pd-arrow--left" onClick={prev}>‹</button>
+          <button className="pd-arrow pd-arrow--right" onClick={next}>›</button>
+          <div className="pd-dots">
+            {Array.from({ length: total }).map((_, i) => (
+              <button key={i} className={`pd-dot ${i === slide ? 'pd-dot--active' : ''}`} onClick={() => go(i)} />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  )
+}
+
 /* ── phone mockup showcase ───────────────────────────────── */
 const PHONE_ROTATIONS = [
   [0],
@@ -240,26 +353,41 @@ const PHONE_Y_OFFSETS = [
 
 function PhoneShowcase({ images }: { images: string[] }) {
   const [active, setActive] = useState<number | null>(null)
-  const phones = images.slice(0, 5)
+  const [spread, setSpread] = useState(false)
+  const phones = images.slice(0, PHONES_PER_PAGE)
   const n = phones.length
   const rots = PHONE_ROTATIONS[n - 1] ?? PHONE_ROTATIONS[4]
   const yOff = PHONE_Y_OFFSETS[n - 1] ?? PHONE_Y_OFFSETS[4]
+  const center = (n - 1) / 2
 
   return (
-    <div className="app-phone-showcase">
-      {phones.map((src, i) => (
-        <motion.div
-          key={i}
-          className={`app-phone-frame ${active === i ? 'app-phone-frame--active' : ''}`}
-          style={{ transform: `rotate(${rots[i]}deg) translateY(${yOff[i]}px)` }}
-          whileHover={{ scale: 1.07, rotate: 0, translateY: 0, zIndex: 10 }}
-          transition={{ type: 'spring', stiffness: 300, damping: 22 }}
-          onHoverStart={() => setActive(i)}
-          onHoverEnd={() => setActive(null)}
-        >
-          <img src={src} alt={`screen ${i + 1}`} className="app-phone-img" />
-        </motion.div>
-      ))}
+    <div className="app-phone-showcase-wrapper">
+      <div className={`app-phone-showcase ${spread ? 'app-phone-showcase--spread' : ''}`}>
+        {phones.map((src, i) => {
+          const spreadX = (i - center) * 24
+          return (
+            <motion.div
+              key={i}
+              className="app-phone-frame"
+              style={{ marginLeft: i === 0 || spread ? 0 : undefined }}
+              initial={false}
+              animate={spread
+                ? { rotate: 0, y: 0, x: 0, scale: 1 }
+                : { rotate: rots[i], y: yOff[i], x: 0, scale: 1 }
+              }
+              whileHover={spread ? { scale: 1.3 } : { scale: 1.32, rotate: 0, y: 0, x: spreadX, zIndex: 10 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 22 }}
+              onHoverStart={() => setActive(i)}
+              onHoverEnd={() => setActive(null)}
+            >
+              <img src={src} alt={`screen ${i + 1}`} className="app-phone-img" />
+            </motion.div>
+          )
+        })}
+      </div>
+      <button className="phone-spread-btn" onClick={() => setSpread(s => !s)}>
+        {spread ? 'Fan view' : 'Spread view'}
+      </button>
     </div>
   )
 }
@@ -275,13 +403,11 @@ function AppProjectDetail({ project, onClose }: { project: Project; onClose: () 
       transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
     >
       <ProjectLinks project={project} onClose={onClose} />
+      <ProjectHeader project={project} />
 
-      {project.images && project.images.length > 0
-        ? <PhoneShowcase images={project.images} />
-        : <div className="pd-carousel"><div className="pd-placeholder">{project.name[0]}</div></div>
-      }
+      <AppMediaShowcase project={project} />
 
-      <ProjectMeta project={project} />
+      <ProjectSections project={project} />
     </motion.div>
   )
 }
@@ -297,8 +423,9 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
       transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
     >
       <ProjectLinks project={project} onClose={onClose} />
+      <ProjectHeader project={project} />
       <MediaCarousel project={project} />
-      <ProjectMeta project={project} />
+      <ProjectSections project={project} />
     </motion.div>
   )
 }

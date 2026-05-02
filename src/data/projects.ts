@@ -5,6 +5,16 @@ import receiptJars3 from '../components/images/projectImages/receiptJars/receipt
 import studySphere1 from '../components/images/projectImages/studySphere/studySphere1.png'
 import studySphere2 from '../components/images/projectImages/studySphere/studySphere2.png'
 import studySphere3 from '../components/images/projectImages/studySphere/studySphere3.png'
+import studySphere4 from '../components/images/projectImages/studySphere/studySphere4.png'
+import studySphere5 from '../components/images/projectImages/studySphere/studySphere5.png'
+import studySphere6 from '../components/images/projectImages/studySphere/studySphere6.png'
+import studySphere7 from '../components/images/projectImages/studySphere/studySphere7.png'
+import studySphere8 from '../components/images/projectImages/studySphere/studySphere8.png'
+import studySphere9 from '../components/images/projectImages/studySphere/studySphere9.png'
+import studySphere10 from '../components/images/projectImages/studySphere/studySphere10.png'
+import studySphere11 from '../components/images/projectImages/studySphere/studySphere11.png'
+import studySphere12 from '../components/images/projectImages/studySphere/studySphere12.png'
+import studySphereDesign from '../components/images/projectImages/studySphere/studySphereDesign.png'
 import create from '../components/images/projectImages/createMarkham/create.jpg'
 import create1 from '../components/images/projectImages/createMarkham/create1.png'
 
@@ -19,6 +29,7 @@ export interface Project {
   whatItDoes?: string | string[]
   howBuilt?: string | string[]
   builtWith?: string[]
+  designImages?: string[]   // slideshow of design/component overview images (app template)
   link?: string
   github?: string
   devpost?: string
@@ -65,10 +76,12 @@ export const projects: Project[] = [
   },
   {
     name: 'StudySphere',
+    type: 'app',
     github: 'https://github.com/tiiffanyho/StudySphere',
+    designImages: [studySphereDesign],
     description: 'StudySphere is an iOS study companion app built to help students connect, share, manage, and optimize their study routines.',
     tags: ['Swift', 'XCode', 'SwiftUI', 'UIKit', 'Swift Playgrounds', 'Keynote', 'Figma'],
-    images: [studySphere1, studySphere2, studySphere3],
+    images: [studySphere1, studySphere2, studySphere3, studySphere4, studySphere5, studySphere6, studySphere7, studySphere8, studySphere9, studySphere10, studySphere11],
     inspiration: 'As a solo developer, I wanted older adults and students managing their own health to feel genuinely supported at home — not just handed a PDF of exercises and left to figure it out. Clinical research shows that adherence drops sharply without real-time feedback, so I set out to build a one-person-built coach with measurable progress baked in. The vision: make high-quality rehab support as accessible as opening a browser, without a clinical team required on the other end.',
     whatItDoes: [
       'Rehably provides a web-based rehabilitation companion that guides users through condition-specific routines such as sit-to-stand and arthritis-friendly exercises.',

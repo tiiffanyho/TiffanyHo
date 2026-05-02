@@ -39,3 +39,24 @@
   --shadow:      0 8px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
   --shadow-blue: 0 4px 20px rgba(59,130,246,0.15);
 }
+
+/* ── Dark mode overrides ─────────────────────────────────── */
+[data-theme="dark"] {
+  --color-bg:          #080808;
+  --color-white:       #141414;
+  --color-black:       #f0f0f0;
+
+  --color-text:        #f0f0f0;
+  --color-text-mid:    #aaaaaa;
+  --color-text-muted:  #666666;
+  --color-text-faint:  #444444;
+
+  --color-border:      #2c2c2c;
+  --color-border-mid:  #222222;
+  --color-surface:     #1e1e1e;
+  --color-surface-mid: #1a1a1a;
+
+  --color-status-bg:   #252525;
+
+  --shadow:      0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+}
