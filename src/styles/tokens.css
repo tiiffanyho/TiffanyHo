@@ -6,57 +6,58 @@
 
 :root {
   /* ── Colors ──────────────────────────────────────────────── */
-  --color-bg:          #000000;   /* page background */
-  --color-white:       #ffffff;   /* card backgrounds */
-  --color-black:       #000000;   /* primary text */
-  --color-accent:      #ff00cc;   /* pink accent (hover states etc.) */
-  --color-blue:        #3b82f6;   /* blue accent (project card hover) */
+  --color-bg:          #ede5d0;   /* aged parchment page */
+  --color-white:       #faf6ed;   /* cream paper card */
+  --color-black:       #1a130a;   /* deep warm ink */
+  --color-accent:      #bf6e6e;   /* dusty rose */
+  --color-blue:        #8a6030;   /* warm amber (interactive accent) */
 
-  --color-text:        #000000;   /* body text */
-  --color-text-mid:    #555555;   /* secondary text */
-  --color-text-muted:  #888888;   /* muted / placeholder text */
-  --color-text-faint:  #aaaaaa;   /* dates, labels */
+  --color-text:        #1a130a;   /* body text */
+  --color-text-mid:    #5a4c38;   /* secondary text */
+  --color-text-muted:  #8a7860;   /* muted / placeholder */
+  --color-text-faint:  #b8a07a;   /* dates, labels */
 
-  --color-border:      #ececec;   /* card/input borders */
-  --color-border-mid:  #f0f0f0;   /* dividers */
-  --color-surface:     #f4f4f4;   /* tag backgrounds, gallery placeholders */
-  --color-surface-mid: #e8e8e8;   /* tab bar background */
+  --color-border:      #d5c8ae;   /* card/input borders */
+  --color-border-mid:  #e0d8c5;   /* dividers */
+  --color-surface:     #e8dfc8;   /* tag backgrounds, placeholders */
+  --color-surface-mid: #ddd4bc;   /* tab bar background */
 
-  --color-status-bg:   #0f0f0f;   /* status bar background */
-  --color-green:       #22c55e;   /* available dot */
+  --color-status-bg:   #1a130a;   /* status bar */
+  --color-green:       #5e8a5e;   /* available dot */
 
   /* ── Typography ──────────────────────────────────────────── */
-  --font-head: 'Bebas Neue', Impact, sans-serif;
+  --font-head: 'Playfair Display', Georgia, serif;
   --font-body: 'Space Grotesk', system-ui, sans-serif;
   --font-mono: 'Courier New', Courier, monospace;
+  --font-hand: 'Caveat', cursive;
 
   /* ── Spacing & Shape ─────────────────────────────────────── */
-  --gap:        12px;   /* gap between the two panels */
-  --radius:     16px;   /* main card border radius */
-  --radius-sm:  8px;    /* smaller radius (tabs, status bar) */
+  --gap:        12px;
+  --radius:     16px;
+  --radius-sm:  8px;
 
   /* ── Shadows ─────────────────────────────────────────────── */
-  --shadow:      0 8px 40px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.07);
-  --shadow-blue: 0 4px 20px rgba(59,130,246,0.15);
+  --shadow:      0 8px 40px rgba(60, 35, 5, 0.12), 0 2px 8px rgba(60, 35, 5, 0.07);
+  --shadow-blue: 0 4px 20px rgba(138, 96, 48, 0.2);
 }
 
-/* ── Dark mode overrides ─────────────────────────────────── */
+/* ── Dark mode: late-night journaling ───────────────────────── */
 [data-theme="dark"] {
-  --color-bg:          #080808;
-  --color-white:       #141414;
-  --color-black:       #f0f0f0;
+  --color-bg:          #14100a;
+  --color-white:       #1c1610;
+  --color-black:       #f0e8d5;
 
-  --color-text:        #f0f0f0;
-  --color-text-mid:    #aaaaaa;
-  --color-text-muted:  #666666;
-  --color-text-faint:  #444444;
+  --color-text:        #f0e8d5;
+  --color-text-mid:    #b09870;
+  --color-text-muted:  #706050;
+  --color-text-faint:  #4a3828;
 
-  --color-border:      #2c2c2c;
-  --color-border-mid:  #222222;
-  --color-surface:     #1e1e1e;
-  --color-surface-mid: #1a1a1a;
+  --color-border:      #2c2018;
+  --color-border-mid:  #241a10;
+  --color-surface:     #1e1610;
+  --color-surface-mid: #181208;
 
-  --color-status-bg:   #252525;
+  --color-status-bg:   #100c06;
 
-  --shadow:      0 8px 40px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+  --shadow:      0 8px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.35);
 }

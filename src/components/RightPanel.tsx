@@ -22,10 +22,10 @@ const COMPONENTS: Record<string, React.ReactNode> = {
   playground: <Playground />,
 }
 
-const slideVariants = {
-  enter:  (dir: number) => ({ x: dir > 0 ? 48 : -48, opacity: 0 }),
-  center: { x: 0, opacity: 1 },
-  exit:   (dir: number) => ({ x: dir > 0 ? -48 : 48, opacity: 0 }),
+const pageFlipVariants = {
+  enter:  (dir: number) => ({ rotateY: dir > 0 ? 70 : -70, opacity: 0, scale: 0.94 }),
+  center: { rotateY: 0, opacity: 1, scale: 1 },
+  exit:   (dir: number) => ({ rotateY: dir > 0 ? -70 : 70, opacity: 0, scale: 0.94 }),
 }
 
 export default function RightPanel() {
@@ -43,28 +43,6 @@ export default function RightPanel() {
   return (
     <main className="right-panel">
 
-      {/* TAB BAR */}
-      <nav className="tab-bar">
-        {TABS.map((tab, i) => (
-          <span key={tab.id} style={{ display: 'contents' }}>
-            {i > 0 && <span className="tab-sep">|</span>}
-            <button
-              className={`tab ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => switchTab(tab.id)}
-            >
-              {activeTab === tab.id && (
-                <motion.div
-                  layoutId="tab-bg"
-                  className="tab-bg"
-                  transition={{ type: 'spring', stiffness: 400, damping: 35 }}
-                />
-              )}
-              <span className="tab-label">{tab.label}</span>
-            </button>
-          </span>
-        ))}
-      </nav>
-
       {/* TAB CONTENT */}
       <div className="tab-content">
         <AnimatePresence mode="wait" custom={direction}>
@@ -72,16 +50,37 @@ export default function RightPanel() {
             key={activeTab}
             className="tab-panel"
             custom={direction}
-            variants={slideVariants}
+            variants={pageFlipVariants}
             initial="enter"
             animate="center"
             exit="exit"
-            transition={{ duration: 0.25, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.42, ease: [0.4, 0, 0.2, 1] }}
+            style={{ transformOrigin: 'center center', backfaceVisibility: 'hidden' }}
           >
             {COMPONENTS[activeTab]}
           </motion.div>
         </AnimatePresence>
       </div>
+
+      {/* TAB STRIP — right-side notebook tabs */}
+      <nav className="tab-strip">
+        {TABS.map((tab) => (
+          <button
+            key={tab.id}
+            className={`tab ${activeTab === tab.id ? 'active' : ''}`}
+            onClick={() => switchTab(tab.id)}
+          >
+            {activeTab === tab.id && (
+              <motion.div
+                layoutId="tab-indicator"
+                className="tab-indicator"
+                transition={{ type: 'spring', stiffness: 400, damping: 35 }}
+              />
+            )}
+            <span className="tab-label">{tab.label}</span>
+          </button>
+        ))}
+      </nav>
 
     </main>
   )

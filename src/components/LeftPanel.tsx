@@ -1,14 +1,23 @@
 import StatusBar from './StatusBar'
 import Typewriter from './Typewriter'
 
-export default function LeftPanel() {
+interface Props {
+  dark: boolean
+  onToggle: () => void
+  width?: number | null
+}
+
+export default function LeftPanel({ dark, onToggle, width }: Props) {
   return (
-    <div className="left-col">
+    <div
+      className="left-col"
+      style={width != null ? { width, minWidth: width, maxWidth: width } : undefined}
+    >
 
       {/* top card — name + philosophy */}
       <div className="card card-top">
         <h1 className="name">Tiffany<br />Ho</h1>
-        <StatusBar />
+        <StatusBar dark={dark} onToggle={onToggle} />
         <p className="philosophy-label">Philosophy</p>
         <Typewriter />
       </div>
