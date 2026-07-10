@@ -22,6 +22,40 @@
   margin-bottom: 32px;
 }
 
+.section-head-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.section-head-row .section-head {
+  margin-bottom: 0;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  background: var(--color-blue);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s;
+}
+
+.resume-btn:hover {
+  background: #2563eb;
+}
+
 /* ── Tag pill ────────────────────────────────────────────────
    Small uppercase label. Used on project cards.              */
 .tag {
