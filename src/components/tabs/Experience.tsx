@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { experiences } from '../../data/experience'
 
 const CONNECTORS = ['then...', 'and then...', 'earlier still...']
-const ICONS = ['📱', '💳', '☕', '🍎']
 
 export default function Experience() {
   const [expanded, setExpanded] = useState<number | null>(0)
@@ -33,7 +32,6 @@ export default function Experience() {
                   <span className="sb-chapter-word">chapter</span>
                   <span className="sb-chapter-num">{String(i + 1).padStart(2, '0')}</span>
                 </div>
-                <span className="sb-icon" aria-hidden="true">{ICONS[i]}</span>
                 <div className="sb-date">{item.date}</div>
               </div>
 

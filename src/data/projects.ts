@@ -17,6 +17,13 @@ import studySphere12 from '../components/images/projectImages/studySphere/studyS
 import studySphereDesign from '../components/images/projectImages/studySphere/studySphereDesign.png'
 import create from '../components/images/projectImages/createMarkham/create.jpg'
 import create1 from '../components/images/projectImages/createMarkham/create1.png'
+import rehably1 from '../components/images/projectImages/rehably/rehably1.png'
+import rehably2 from '../components/images/projectImages/rehably/rehably2.png'
+import rehably3 from '../components/images/projectImages/rehably/rehably3.png'
+import rehably4 from '../components/images/projectImages/rehably/rehably4.png'
+import rehably5 from '../components/images/projectImages/rehably/rehably5.png'
+import rehably6 from '../components/images/projectImages/rehably/rehably6.png'
+import rehably7 from '../components/images/projectImages/rehably/rehably7.png'
 
 export interface Project {
   name: string
@@ -33,6 +40,7 @@ export interface Project {
   link?: string
   github?: string
   devpost?: string
+  figma?: string
 }
 
 export const projects: Project[] = [
@@ -56,8 +64,10 @@ export const projects: Project[] = [
     name: 'Rehably',
     github: 'https://github.com/tiiffanyho/rehably',
     devpost: 'https://devpost.com/software/rehably',
+    figma: 'https://www.figma.com/design/7X7bczaY0O6gDtwFbzUFof/Rehably?node-id=0-1&t=2bA1AOcMW5M1i3sM-1',
     description: 'A web-based rehabilitation companion for older adults managing chronic conditions at home.',
     tags: ['HTML/CSS', 'JS', 'Figma', 'MediaPipe', 'Python'],
+    images: [rehably1, rehably2, rehably3, rehably4, rehably5, rehably6, rehably7],
     inspiration:
       'We wanted older adults and people managing chronic conditions to take responsibility and accountability over their physical therapy at home. Clinical research shows that adherence drops when patients lack real-time feedback, so we set out to build a coach with measurable progress. The vision: make high quality rehab support as accessible as opening a browser.',
     whatItDoes: [

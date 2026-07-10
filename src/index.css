@@ -379,7 +379,6 @@ body {
 .storyboard {
   display: flex;
   flex-direction: column;
-  max-width: 620px;
 }
 
 .sb-entry { display: flex; flex-direction: column; }
@@ -806,6 +805,15 @@ body {
 
 .pd-link-btn--github:hover { background: #333; }
 
+.pd-link-btn--figma {
+  background: #1e1e1e;
+  color: var(--color-white);
+  padding: 6px 12px;
+  justify-content: center;
+}
+
+.pd-link-btn--figma:hover { background: #333; }
+
 .pd-link-btn--devpost {
   background: #003e54;
   color: var(--color-white);
@@ -931,7 +939,22 @@ body {
   font-weight: 500;
   line-height: 1.7;
   color: var(--color-black);
-  max-width: 600px;
+}
+
+.exp-bullets {
+  list-style: disc;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.exp-bullets li {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--color-black);
 }
 
 .project-tags {

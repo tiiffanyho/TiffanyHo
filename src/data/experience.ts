@@ -1,6 +1,7 @@
 import textnow from '../components/images/logos/textnowIcon.png'
 import lucullus from '../components/images/logos/lucullusIcon.png'
 import cec from '../components/images/logos/CECIcon.webp'
+import uwblueprint from '../components/images/logos/uwblueprintIcon.png'
 
 export interface ExperienceItem {
   date: string
@@ -12,6 +13,16 @@ export interface ExperienceItem {
 }
 
 export const experiences: ExperienceItem[] = [
+  {
+    date: 'May 2026 - Present',
+    role: 'Software Developper',
+    company: 'UW Blueprint · Non-Profit Organization',
+    logo: uwblueprint,
+    description: [
+      'Implemented new features by translating design specs into production-ready components and resolving local development/environment issues to ship software supporting nonprofit clients',
+      'Building and maintaining internal tools and a recruitment platform (React, MUI, TypeScript) to streamline team workflows across 10+ teams consisting 150+ members, contributing code reviews and PR iterations',
+    ],
+  },
   {
     date: 'Jan 2026 — Present',
     role: 'iOS software developer',

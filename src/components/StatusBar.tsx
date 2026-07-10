@@ -8,7 +8,7 @@ export default function StatusBar({ dark, onToggle }: Props) {
     <div className="status-bar">
       <div className="status-left">
         <span className="status-dot" />
-        <span className="status-text">Available for new projects</span>
+        <span className="status-text">Seeking Fall 2026 Internships</span>
       </div>
       <div className="status-icons">
         {/* LinkedIn */}
