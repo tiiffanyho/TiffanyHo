@@ -4,15 +4,11 @@ import Typewriter from './Typewriter'
 interface Props {
   dark: boolean
   onToggle: () => void
-  width?: number | null
 }
 
-export default function LeftPanel({ dark, onToggle, width }: Props) {
+export default function LeftPanel({ dark, onToggle }: Props) {
   return (
-    <div
-      className="left-col"
-      style={width != null ? { width, minWidth: width, maxWidth: width } : undefined}
-    >
+    <div className="left-col">
 
       {/* top card — name + philosophy */}
       <div className="card card-top">

@@ -43,26 +43,7 @@ export default function RightPanel() {
   return (
     <main className="right-panel">
 
-      {/* TAB CONTENT */}
-      <div className="tab-content">
-        <AnimatePresence mode="wait" custom={direction}>
-          <motion.div
-            key={activeTab}
-            className="tab-panel"
-            custom={direction}
-            variants={pageFlipVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.42, ease: [0.4, 0, 0.2, 1] }}
-            style={{ transformOrigin: 'center center', backfaceVisibility: 'hidden' }}
-          >
-            {COMPONENTS[activeTab]}
-          </motion.div>
-        </AnimatePresence>
-      </div>
-
-      {/* TAB STRIP — right-side notebook tabs */}
+      {/* TAB STRIP — left-side notebook tabs */}
       <nav className="tab-strip">
         {TABS.map((tab) => (
           <button
@@ -81,6 +62,25 @@ export default function RightPanel() {
           </button>
         ))}
       </nav>
+
+      {/* TAB CONTENT */}
+      <div className="tab-content">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={activeTab}
+            className="tab-panel"
+            custom={direction}
+            variants={pageFlipVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.42, ease: [0.4, 0, 0.2, 1] }}
+            style={{ transformOrigin: 'center center', backfaceVisibility: 'hidden' }}
+          >
+            {COMPONENTS[activeTab]}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
     </main>
   )
