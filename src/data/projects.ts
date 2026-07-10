@@ -48,7 +48,7 @@ export const projects: Project[] = [
     name: 'Receipt Jars',
     github: 'https://github.com/tiiffanyho/ReceiptJars',
     devpost: 'https://devpost.com/software/receiptjars',
-    description: 'A budgeting tool that turns receipts into digital stickers for memory-keeping collages.',
+    description: 'AI budgeting tool that turns receipts into digital stickers for memory-keeping collages.',
     tags: ['UX Design', 'Figma', 'TypeScript', 'CSS', 'React'],
     images: [receiptJars, receiptJars1, receiptJars2, receiptJars3],
     video: 'https://www.youtube.com/watch?v=st5KmNxq5_c&t=1s',
