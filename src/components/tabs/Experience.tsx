@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { experiences } from '../../data/experience'
+import { community } from '../../data/community'
 import resumePdf from '../images/resume/TiffanyHoResume.pdf?url'
 
 const CONNECTORS = ['then...', 'and then...', 'earlier still...']
@@ -103,6 +104,24 @@ export default function Experience() {
                 <div className="sb-connector-line" />
               </div>
             )}
+          </div>
+        ))}
+      </div>
+
+      <h3 className="community-head">Community Involvement</h3>
+      <div className="community-grid">
+        {community.map((item, i) => (
+          <div className="community-card" key={i}>
+            {item.logo ? (
+              <img className="community-logo" src={item.logo} alt={item.org} />
+            ) : (
+              <div className="community-monogram">{item.org[0]}</div>
+            )}
+            <div className="community-info">
+              <div className="community-role">{item.role}</div>
+              <div className="community-org">{item.org}</div>
+              <div className="community-meta">{item.location} · {item.date}</div>
+            </div>
           </div>
         ))}
       </div>

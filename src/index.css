@@ -8,7 +8,7 @@
   background: none;
   border: none;
   padding: 0;
-  color: #faf6ed;
+  color: var(--color-black);
   opacity: 0.6;
   cursor: pointer;
   transition: opacity 0.15s;
@@ -140,6 +140,55 @@ body {
   animation: blink 0.55s step-end infinite;
 }
 
+/* ── experience marquee — scrolling logo/name ticker at the bottom of card-top ── */
+.exp-marquee {
+  margin-top: auto;
+  padding-top: 16px;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+
+.exp-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: exp-marquee-scroll 22s linear infinite;
+}
+
+.exp-marquee:hover .exp-marquee-track {
+  animation-play-state: paused;
+}
+
+.exp-marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 24px;
+  flex-shrink: 0;
+}
+
+.exp-marquee-logo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  mix-blend-mode: multiply;
+}
+
+.exp-marquee-name {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--color-text-mid);
+  white-space: nowrap;
+}
+
+@keyframes exp-marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 .tagline-row {
   display: flex;
   flex-direction: column;
@@ -199,9 +248,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--color-status-bg);
-  border-radius: var(--radius-sm);
-  padding: 10px 14px;
   margin-bottom: 20px;
   flex-shrink: 0;
 }
@@ -232,10 +278,8 @@ body {
   font-size: 11px;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #ffffff;
+  color: var(--color-black);
 }
-
-[data-theme="dark"] .status-text { color: #ffffff; }
 
 .status-icons {
   display: flex;
@@ -246,7 +290,7 @@ body {
 .status-icons a {
   display: flex;
   align-items: center;
-  color: #faf6ed;
+  color: var(--color-black);
   transition: color 0.15s;
   text-decoration: none;
   opacity: 0.6;
@@ -537,6 +581,81 @@ body {
   font-weight: 600;
   color: var(--color-text-faint);
   white-space: nowrap;
+}
+
+/* ── community involvement — compact card grid ── */
+.community-head {
+  font-family: var(--font-head);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--color-black);
+  margin: 40px 0 16px;
+  max-width: 620px;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+.community-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1.5px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-white);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.community-card:hover {
+  border-color: var(--color-blue);
+  box-shadow: var(--shadow-blue);
+}
+
+.community-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.community-monogram {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-head);
+  font-size: 20px;
+  color: var(--color-blue);
+}
+
+.community-info { min-width: 0; }
+
+.community-role {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-black);
+  margin-bottom: 2px;
+}
+
+.community-org {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.community-meta {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-text-faint);
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -965,16 +1084,16 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────
-   GALLERY TAB
+   MEMORIES TAB
    ───────────────────────────────────────────────────────────── */
-.gallery-grid {
+.memories-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
 }
 
-.gallery-item {
+.memories-item {
   aspect-ratio: 4/3;
   background: var(--color-surface);
   border-radius: 10px;
@@ -988,12 +1107,12 @@ body {
   transition: background 0.2s;
 }
 
-.gallery-item:hover { background: #ebebeb; }
+.memories-item:hover { background: #ebebeb; }
 
 /* ─────────────────────────────────────────────────────────────
-   PLAYGROUND TAB
+   VISION TAB — draggable / resizable moodboard
    ───────────────────────────────────────────────────────────── */
-.playground-desc {
+.vision-desc {
   font-size: 13px;
   font-weight: 500;
   color: var(--color-text-muted);
@@ -1001,32 +1120,59 @@ body {
   max-width: 500px;
 }
 
-.playground-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 20px;
+.vision-board {
+  position: relative;
   width: 100%;
+  height: 640px;
+  background: var(--color-surface);
+  border: 1.5px dashed var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
-.playground-item {
-  aspect-ratio: 4/3;
-  background: var(--color-surface);
-  border-radius: 12px;
-  border: 1.5px dashed var(--color-border);
+.vision-card {
+  position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--color-text-faint);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  transition: background 0.2s, border-color 0.2s;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  cursor: grab;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
 }
 
-.playground-item:hover {
-  background: #ebebeb;
-  border-color: var(--color-blue);
+.vision-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.vision-card-label {
+  font-family: var(--font-head);
+  font-size: 16px;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 0.02em;
+  pointer-events: none;
+}
+
+.vision-resize-handle {
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.35);
+  cursor: nwse-resize;
+  touch-action: none;
+}
+
+.vision-resize-handle:hover {
+  background: rgba(255, 255, 255, 0.6);
 }
 
 /* ─────────────────────────────────────────────────────────────

@@ -1,5 +1,6 @@
 import StatusBar from './StatusBar'
 import Typewriter from './Typewriter'
+import ExperienceMarquee from './ExperienceMarquee'
 
 interface Props {
   dark: boolean
@@ -16,6 +17,7 @@ export default function LeftPanel({ dark, onToggle }: Props) {
         <StatusBar dark={dark} onToggle={onToggle} />
         <p className="philosophy-label">Philosophy</p>
         <Typewriter />
+        <ExperienceMarquee />
       </div>
 
       {/* bottom card — tagline + contact */}

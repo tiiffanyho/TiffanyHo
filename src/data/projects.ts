@@ -13,7 +13,6 @@ import studySphere8 from '../components/images/projectImages/studySphere/studySp
 import studySphere9 from '../components/images/projectImages/studySphere/studySphere9.png'
 import studySphere10 from '../components/images/projectImages/studySphere/studySphere10.png'
 import studySphere11 from '../components/images/projectImages/studySphere/studySphere11.png'
-import studySphere12 from '../components/images/projectImages/studySphere/studySphere12.png'
 import studySphereDesign from '../components/images/projectImages/studySphere/studySphereDesign.png'
 import create from '../components/images/projectImages/createMarkham/create.jpg'
 import create1 from '../components/images/projectImages/createMarkham/create1.png'
@@ -127,27 +126,5 @@ export const projects: Project[] = [
       "Tooling: Developed in Visual Studio with a modern development workflow for efficient collaboration across the team.",
       "Structure: Modular React components to keep pages maintainable and easy to update between council terms.",
     ],
-  },
-  {
-    name: 'ML Recommendation Engine',
-    description: 'Collaborative filtering model surfacing personalized suggestions in real time.',
-    tags: ['Python', 'ML'],
-    inspiration:
-      'Curious whether collaborative filtering could surface genuinely surprising suggestions rather than just the obvious ones.',
-    whatItDoes:
-      'A collaborative filtering model integrated with a lightweight frontend to surface personalised suggestions in real time.',
-    howBuilt:
-      'Python backend with a matrix factorisation model, served via a FastAPI endpoint. Frontend in React fetches and renders ranked suggestions.',
-  },
-  {
-    name: 'Habitat Tracker',
-    description: 'Sensor network and dashboard for monitoring environmental conditions in ecological habitats.',
-    tags: ['IoT', 'Data Viz'],
-    inspiration:
-      'A school project that turned into something real — monitoring microclimates in sensitive ecological zones with cheap hardware.',
-    whatItDoes:
-      'A sensor network and live dashboard for monitoring temperature, humidity, and light levels in sensitive ecological habitats.',
-    howBuilt:
-      'Arduino sensors push data to an MQTT broker. A Node.js service ingests and stores readings. The dashboard is built with React and D3 for real-time visualisation.',
   },
 ]

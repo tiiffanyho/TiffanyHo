@@ -3,23 +3,23 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Home from './tabs/Home'
 import Experience from './tabs/Experience'
 import Projects from './tabs/Projects'
-import Gallery from './tabs/Gallery'
-import Playground from './tabs/Playground'
+import Memories from './tabs/Memories'
+import Vision from './tabs/Vision'
 
 const TABS = [
   { id: 'home',       label: 'Home' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects',   label: 'Projects' },
-  { id: 'gallery',    label: 'Gallery' },
-  { id: 'playground', label: 'Playground' },
+  { id: 'memories',   label: 'Memories' },
+  { id: 'vision',     label: 'Vision' },
 ]
 
 const COMPONENTS: Record<string, React.ReactNode> = {
   home:       <Home />,
   experience: <Experience />,
   projects:   <Projects />,
-  gallery:    <Gallery />,
-  playground: <Playground />,
+  memories:   <Memories />,
+  vision:     <Vision />,
 }
 
 const pageFlipVariants = {

@@ -13,7 +13,7 @@
 }
 
 /* ── Section heading (Bebas Neue, large) ─────────────────────
-   Used at the top of Experience, Projects, Gallery tabs.     */
+   Used at the top of Experience, Projects, Memories tabs.    */
 .section-head {
   font-family: var(--font-head);
   font-size: clamp(36px, 4.5vw, 56px);
